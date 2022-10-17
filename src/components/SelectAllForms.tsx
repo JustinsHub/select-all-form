@@ -1,4 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
+import '../styles/SelectAllForms.css'
+
 
 const SelectAllForms:React.FC = () => {
     const INIT_VALUE = [
@@ -25,8 +27,8 @@ const SelectAllForms:React.FC = () => {
     }
 
   return (
-    <div>
-        <div>Select Value: 
+    <div className="SAF__container">
+        <div className="SAF__title-container">Select Value: 
             {formData.map((ingredient:any) => 
             <span key={ingredient.ingredients}>
                 {ingredient.checked && ingredient.ingredients}
@@ -43,7 +45,7 @@ const SelectAllForms:React.FC = () => {
             </div>
 
             {formData.map((ingredient) => 
-            <div key={ingredient.ingredients}>
+            <div className="SAF__ingredient-container" key={ingredient.ingredients}>
                 <input
                 type="checkbox"
                 name={ingredient.ingredients}
@@ -54,8 +56,8 @@ const SelectAllForms:React.FC = () => {
             </div>
             )}
 
-            <div>
-                <button onClick={handleClearAll}>Clear All</button>
+            <div className="SAF__btn-container">
+                <button className="SAF__btn"onClick={handleClearAll}>Clear All</button>
             </div>
         </form>
     </div>
